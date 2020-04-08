@@ -1,10 +1,14 @@
 import React, {Component} from 'react';
+import Header from "../Commen/Header";
+
 
 class VkViewProducts extends Component {
     render() {
         return (
             <div>
-                <h1>VK_View Products</h1>
+
+                <Header/>
+
             </div>
         );
     }
