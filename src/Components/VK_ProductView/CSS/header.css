@@ -26,6 +26,16 @@ nav{
     font-family: sans-serif;
 }
 
+.logo{
+    float: left;
+    margin-left: 40px;
+    margin-top: 8px;
+    color: white;
+    font-family: "Bradley Hand";
+    font-size: 30px;
+
+}
+
 @media screen and (max-width: 769px){
 
     .line{

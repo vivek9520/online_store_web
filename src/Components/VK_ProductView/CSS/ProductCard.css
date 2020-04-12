@@ -1,0 +1,23 @@
+.cardstyle{
+
+  
+}
+.image{
+    height: 200px;
+
+}
+.ItemCode{
+    font-size: 10px;
+    font-weight: bolder;
+}
+.footerText{
+    font-size: 12px;
+    font-weight: bold;
+    background-color: #563472 !important;
+    color: white;
+}
+.addtocard{
+    float: right;
+    font-size: 20px;
+    cursor: pointer;
+}
