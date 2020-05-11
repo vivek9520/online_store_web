@@ -9,28 +9,13 @@ const check =[1,2,3,4];
 class CardViewList extends Component {
     render() {
         return (
-            dresses.map((dress)=>{
-                    return(
-                        <div className="row">
-                            <div className="col-lg-3 col-sm-6">
-                                <ProductCardView ds/>
-                            </div>
-                            <div className="col-lg-3 col-sm-6">
-                                <ProductCardView/>
-                            </div>
-                            <div className="col-lg-3 col-sm-6">
-                                <ProductCardView/>
-                            </div>
-                            <div className="col-lg-3 col-sm-6">
-                                <ProductCardView/>
-                            </div>
-
-                        </div>
-                    );
-            })
-
-
-
+            <div className="row">
+                {dresses.map(dress =>(
+                    <div className="col-lg-3">
+                        <ProductCardView></ProductCardView>
+                    </div>
+                ))}
+            </div>
         );
     }
 }

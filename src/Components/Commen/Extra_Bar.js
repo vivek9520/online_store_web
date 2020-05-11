@@ -10,7 +10,7 @@ class ExtraBar extends Component {
         return (
             <div className=" nav1">
                 <div className="row">
-                <div className="col-lg-1 signup">sign up</div>
+                <div className="col-lg-1 signup"><i className="fas fa-cart-plus"></i></div>
                 <div className="col-lg-10">
                     <marquee>
                         <h6 className="marquee_text" >
@@ -18,7 +18,7 @@ class ExtraBar extends Component {
                         </h6>
                     </marquee>
                 </div>
-                <div className="col-lg-1 login">Login</div>
+                <div className="col-lg-1 login"><i className="fas fa-sign-in-alt"></i></div>
 
             </div>
             </div>
