@@ -1,0 +1,12 @@
+.cartTrue{
+    background-color: #252ea0;
+    color: white;
+    font-family: "Times New Roman";
+
+}
+
+.cartFalse{
+    background-color: #563472;
+    color: white;
+    font-family: "Times New Roman";
+}

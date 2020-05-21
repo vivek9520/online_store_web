@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import VkViewProducts from "./Components/VK_ProductView/VK_ViewProducts";
 

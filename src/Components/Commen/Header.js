@@ -39,9 +39,5 @@ class Header extends Component {
 
 
 }
-const s = document.querySelector("body");
-const a = document.querySelector(".nav-links");
-s.addEventListener("click",() =>{
-a.classList.toggle("open");
-})
+
 export default Header;

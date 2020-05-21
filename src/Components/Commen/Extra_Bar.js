@@ -5,12 +5,17 @@ import '../VK_ProductView/CSS/ExtraBar.css'
 
 class ExtraBar extends Component {
 
+
+    redirectCart = () => {
+        window.location ="../VK_AddToCart/AddToCardBody.js"
+    }
+
     render() {
 
         return (
             <div className=" nav1">
                 <div className="row">
-                <div className="col-lg-1 signup"><i className="fas fa-cart-plus"></i></div>
+                <div className="col-lg-1 signup"><i className="fas fa-cart-plus" onClick={this.redirectCart}></i></div>
                 <div className="col-lg-10">
                     <marquee>
                         <h6 className="marquee_text" >
@@ -25,6 +30,7 @@ class ExtraBar extends Component {
 
         );
     }
+
 }
 
 export default ExtraBar;

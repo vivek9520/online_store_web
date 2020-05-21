@@ -9,7 +9,7 @@ class SearchAndFilter extends Component {
                     <form>
                         <div className="input-group">
 
-                            <input type="text" className="form-control" placeholder="Enter the Task "   required/>
+                            <input type="text" className="form-control" placeholder="Enter the Category "   required/>
                         </div>
                         <button className= "btn btn-block  mt-3 btnNew">Search</button>
                     </form>
