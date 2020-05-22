@@ -2,9 +2,10 @@ import React, {Component,useEffect,useState} from 'react';
 import Axios from "axios";
 
 import ProductCardView from "./ProductCardView";
-import CheckBox from "./Section/checkbox";
+
 import AddToCard from "../VK_ProductView/Section/AddToCart"
 import './CSS/CardViewList.css'
+import axios from "axios";
 
 
 
@@ -22,47 +23,26 @@ function CardViewList() {
 
 
 
-        useEffect(()=>{
-            const variable ={
-                skip: Skip,
-                limit: Limit
-            }
+    useEffect(()=>{
 
-            getProduct(variable);
 
-            if(Cart.length>0){
-                setcartStatus(false)
-            }
-        },)
+        getProduct();
 
-    const getProduct = (variable)=>{
-        Axios.post('http://localhost:3001/api/getAllProducts',variable)
-            .then(response =>{
-                if (response.data.success){
-                    setProducts(response.data.items)
+        if(Cart.length>0){
+            setcartStatus(false)
+        }
+    },)
 
-                }
-                else{
-                    alert("Data fetching failed");
-                }
+    const getProduct = ()=>{
+        Axios.get('http://localhost:5000/items/')
+            .then(response => {
+                setProducts(response.data)
+                console.log(response.data)
+            })
+            .catch((error) => {
+                console.log(error);
             })
     }
-
-    const onLoadMore =() =>{
-        let skip = Skip +Limit;
-        const variable ={
-            skip: skip,
-            limit: Limit
-        }
-
-        getProduct(variable);
-
-    }
-
-    const changeLimit =()=>{
-            setLimit(16);
-    }
-
 
 
 
@@ -94,11 +74,7 @@ function CardViewList() {
                         <ProductCardView productData = {Product} addcart ={AddToCartAdd}></ProductCardView>
                     </div>
                 ))}
-                <div className="col-lg-12">
-                    <div style={{display:'flex', justifyContent:'center'}}>
-                        <button onClick={() =>{onLoadMore(); changeLimit()}}>Load More</button>
-                    </div>
-                </div>
+
             </div>
         );
 

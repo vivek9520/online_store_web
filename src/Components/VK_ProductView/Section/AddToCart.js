@@ -1,7 +1,8 @@
 import React, {useEffect, useState} from "react";
-import {Checkbox,Collapse} from "antd";
+import {Collapse} from "antd";
 import 'antd/dist/antd.css';
 import SingleAddToCart from "./SingleAddToCart";
+import StripeCheckout from "react-stripe-checkout";
 
 const {Panel} =Collapse;
 
@@ -18,7 +19,7 @@ function AddToCart(props) {
 
         for (let i = 0 ; i<props.Data.length ; i++){
 
-            t = t+props.Data[i].Price;
+            t = t+props.Data[i].price;
 
              setAmount(t)
 
@@ -40,7 +41,9 @@ function AddToCart(props) {
 
     })
 
+    const handleToken =(token,address)=>{
 
+    }
 
     const  renderCheckboxlist = ()=>props.Data.map((value)=>(
         <React.Fragment>
@@ -55,7 +58,7 @@ function AddToCart(props) {
                 <Panel  header="Add To Cart View" key="1" style={{ color:"red"}}>
                     {renderCheckboxlist()}
                     <h5>Total Price:{Amount}</h5>
-                    <button className="btn-block">Pay</button><br/>
+                   <StripeCheckout className="btn-block" stripeKey="pk_test_wVIvQLQLIXuy17qSxXrfXyhe00E4CZ7CFv" token={handleToken}></StripeCheckout>
                     <button className="btn-block">Save</button>
 
                 </Panel>
