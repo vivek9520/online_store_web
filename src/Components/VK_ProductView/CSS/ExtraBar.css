@@ -1,0 +1,19 @@
+.nav1{
+    height: 5vh;
+    background-color: rgba(79, 23, 114, 0.89);
+
+}
+.marquee_text{
+    color: white;
+    margin: 5px;
+    font-family: Times New Roman;
+    font-weight: bold;
+}
+.login{
+    color: white;
+}
+.signup{
+    color: white;
+    text-align: center;
+    ;
+}

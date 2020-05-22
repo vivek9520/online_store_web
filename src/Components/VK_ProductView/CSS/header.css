@@ -1,0 +1,77 @@
+
+
+nav{
+    height: 10vh;
+    background-color: rgba(69, 28, 114, 0.89);
+
+}
+
+.nav-links{
+    display: flex;
+    list-style: none;
+    width: 75%;
+    height: 100%;
+    justify-content: space-around;
+    align-items: center;
+    margin-left: auto;
+}
+
+.nav-links li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.body{
+    font-family: sans-serif;
+}
+
+.logo{
+    float: left;
+    margin-left: 40px;
+    margin-top: 8px;
+    color: white;
+    font-family: "Bradley Hand";
+    font-size: 30px;
+
+}
+
+@media screen and (max-width: 769px){
+
+    .line{
+        width:30px ;
+        height: 3px;
+        background-color: white;
+        margin: 5px;
+    }
+
+    nav{
+        position: relative;
+    }
+    .hamburger{
+        position: absolute;
+        cursor: pointer;
+        right: 5%;
+        top: 50%;
+        transform: translate(-5%,-50%);
+        z-index: 2;
+    }
+   .nav-links{
+       position: fixed;
+       width:100vh ;
+       height: 100%;
+       background-color: rgba(69, 28, 114, 0.89);
+       flex-direction: column;
+
+       clip-path: circle(50px at 90% -10%);
+       -webkit-clip-path:circle(100px at 90% -10%);
+       transition:all 1s ease-out ;
+
+   }
+
+   .nav-links.open{
+       clip-path: circle(50px at 90% -10%);
+       -webkit-clip-path:circle(1000px at 90% -10%);
+   }
+}
+    

@@ -1,16 +1,33 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import VkViewProducts from "./Components/VK_Components/VK_ViewProducts";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+
+import Navbar from "./components/navbar.component"
+import ItemsList from "./components/items-list.component";
+import EditItem from "./components/edit-item.component";
+import CreateItem from "./components/create-Item.component";
+import CreateCate from "./components/create-cate.component";
+import LessList from "./components/less-list.component";
+import VkViewProducts from "./components/VK_ProductView/VK_ViewProducts";
+
+
 
 function App() {
   return (
-   <div>
-     <div className="jumbotron">
-
-     </div>
+      <Router>
+          <div className="container">
+        <Navbar />
+        <br/>
         <VkViewProducts/>
-   </div>
+        <Route path="/ee" exact component={ItemsList} />
+        <Route path="/edit/:id" component={EditItem} />
+          <Route path="/user" component={CreateItem} />
+              <Route path="/create" component={CreateCate} />
+              <Route path="/less" component={LessList} />
+
+
+          </div>
+      </Router>
   );
 }
 
