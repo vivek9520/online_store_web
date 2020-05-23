@@ -6,6 +6,7 @@ import './CSS/ProductCard.css'
 import {
     Card, CardImg, CardText, CardGroup, CardBody
 } from 'reactstrap';
+import axios from "axios";
 
 
 class ProductCardView extends Component {
@@ -18,6 +19,29 @@ class ProductCardView extends Component {
         this.state={
             count:0
         }
+    }
+
+    update(id){
+
+        const item = {
+            cateName: this.props.productData.cateName,
+            productName: this.props.productData.productName,
+            color: this.props.productData.color,
+            size: this.props.productData.size,
+            description: this.props.productData.description,
+            proCount: this.props.productData.proCount+1,
+            price: this.props.productData.price,
+            discount: this.props.productData.discount,
+            date: this.props.productData.date,
+            filename: this.props.productData.filename,
+        };
+        console.log(item);
+
+
+        axios.post('http://localhost:5000/items/update/'+id, item)
+            .then(res => console.log(res.data));
+
+
     }
 
 
@@ -37,6 +61,7 @@ class ProductCardView extends Component {
                         <p className="f6 gray mv1">Rs/{this.props.productData.price}</p>
                         <a className="link tc ph3 pv1 db bg-animate bg-dark-blue hover-bg-blue white f6 br1" style={{color:"white" ,margin:"2px"}} onClick={()=>this.props.addcart(this.props.productData)}>Add  Cart</a>
                         <a className="link tc ph3 pv1 db bg-animate bg-dark-blue hover-bg-blue white f6 br1" style={{color:"white" ,margin:"2px" }} onClick={()=>this.props.addtoWish(this.props.productData)}>Add  Wish</a>
+
 
                     </div>
 

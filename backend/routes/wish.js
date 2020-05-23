@@ -3,6 +3,7 @@ const router = express.Router();
 
 const path = require('path');
 let Item = require('../models/wish.model');
+let UpdateModal = require('../models/item.model')
 
 
 router.get('/check',(req,res)=>{
@@ -52,6 +53,27 @@ router.route('/add').post((req, res) => {
 router.route('/:id').delete((req, res) => {
     Item.findByIdAndDelete(req.params.id)
         .then(() => res.json('Item deleted.'))
+        .catch(err => res.status(400).json('Error: ' + err));
+});
+
+router.route('/update/:id').post((req, res) => {
+    Item.findById(req.params.id)
+        .then(item => {
+            item.cateName = req.body.cateName;
+            item.productName = req.body.productName;
+            item.color = req.body.color;
+            item.size = req.body.size;
+            item.description = req.body.description;
+            item.proCount = Number(req.body.proCount);
+            item.price = Number(req.body.price);
+            item.discount = Number(req.body.discount);
+            item.date = Date.parse(req.body.date);
+            item.filename = req.body.filename;
+
+            item.save()
+                .then(() => res.json('Item updated!'))
+                .catch(err => res.status(400).json('Error: ' + err));
+        })
         .catch(err => res.status(400).json('Error: ' + err));
 });
 module.exports = router;
