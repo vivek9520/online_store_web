@@ -29,9 +29,17 @@ connection.once('open', () => {
 
 const itemsRouter = require('./routes/items');
 const catesRouter = require('./routes/cates');
+const wishRouter = require('./routes/wish');
 
+
+app.use('/wish',wishRouter)
 app.use('/items',itemsRouter);
 app.use('/cates', catesRouter);
+
+
+
+
+
 
 
 app.listen(port, () => {

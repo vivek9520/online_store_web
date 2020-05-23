@@ -18,7 +18,7 @@ function SingleAddToCart(props) {
                     </div>
                     <div>
                         <a href="tel:" className="f6 link blue hover-dark-gray">{props.Data.price}</a>
-                        <button className="btn btn-danger" style={{padding:"5px" ,margin:"20px"}}>Delete</button>
+                        <button className="btn btn-danger" style={{padding:"5px" ,margin:"20px"}} onClick={props.handleDelete}>Delete</button>
                     </div>
                 </li>
             </ul>

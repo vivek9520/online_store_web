@@ -37,14 +37,40 @@ function CardViewList() {
         Axios.get('http://localhost:5000/items/')
             .then(response => {
                 setProducts(response.data)
-                console.log(response.data)
+
             })
             .catch((error) => {
-                console.log(error);
+
             })
     }
+    const handlerDelete = (id)=>{
+
+        const  filteredItems = Cart.filter(item => item._id !== id)
+        setCart(filteredItems)
+        alert("deleted")
+
+    }
+
+   const addtoWish =(item)=>{
+        console.log(item)
+
+       const wishitem = {
+           cateName: item.cateName,
+           productName: item.productName,
+           color: item.color,
+           size: item.size,
+           description: item.description,
+           proCount: item.proCount,
+           price: item.price,
+           discount: item.discount,
+           date: item.date,
+           filename: item.filename,
+       };
 
 
+       axios.post('http://localhost:5000/wish/add', wishitem)
+           .then(res => console.log(res.data));
+   }
 
 
     const AddToCartAdd =(cartItem)=>{
@@ -53,7 +79,6 @@ function CardViewList() {
 
         alert("Added to Cart");
 
-        console.log(Cart);
     }
         return (
 
@@ -62,6 +87,7 @@ function CardViewList() {
                 <div className="col-lg-12">
                     <AddToCard
                        Data = {Cart}
+                       handleDelete={handlerDelete}
                     />
 
                 </div>
@@ -69,9 +95,9 @@ function CardViewList() {
                     <button className= {cartStatus ?"btn-block  cartFalse" :"btn-block  cartTrue" }>Number of Item  :   {Cart.length}</button>
                 </div>
 
-                {Products.map(Product =>(
+                {Products.map((Product) =>(
                     <div className="col-lg-3">
-                        <ProductCardView productData = {Product} addcart ={AddToCartAdd}></ProductCardView>
+                        <ProductCardView productData = {Product} addcart ={AddToCartAdd} key={Product._id} addtoWish ={addtoWish}></ProductCardView>
                     </div>
                 ))}
 

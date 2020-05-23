@@ -33,8 +33,11 @@ class ProductCardView extends Component {
                         width="180"/>
                     <div className="pa2 bt b--black-20">
                         <a className="f6 db link dark-blue hover-blue" >{this.props.productData.productName}</a>
+                        <a className="f6 db link dark-blue hover-blue" >{this.props.productData.size}</a>
                         <p className="f6 gray mv1">Rs/{this.props.productData.price}</p>
-                        <a className="link tc ph3 pv1 db bg-animate bg-dark-blue hover-bg-blue white f6 br1" style={{color:"white"}} onClick={()=>this.props.addcart(this.props.productData)}>Add to Cart</a>
+                        <a className="link tc ph3 pv1 db bg-animate bg-dark-blue hover-bg-blue white f6 br1" style={{color:"white" ,margin:"2px"}} onClick={()=>this.props.addcart(this.props.productData)}>Add  Cart</a>
+                        <a className="link tc ph3 pv1 db bg-animate bg-dark-blue hover-bg-blue white f6 br1" style={{color:"white" ,margin:"2px" }} onClick={()=>this.props.addtoWish(this.props.productData)}>Add  Wish</a>
+
                     </div>
 
                 </article>

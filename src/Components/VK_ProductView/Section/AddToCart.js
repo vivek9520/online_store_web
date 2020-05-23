@@ -23,16 +23,11 @@ function AddToCart(props) {
 
              setAmount(t)
 
-            console.log(Amount);
 
         }
     }
 
-   const deleteFunction =(id)=>{
-       this.setState(prevState => ({
-           data: prevState.Data.filter(el => el != id )
-       }));
-    }
+
 
 
     useEffect(()=>{
@@ -45,9 +40,12 @@ function AddToCart(props) {
 
     }
 
+
+
+
     const  renderCheckboxlist = ()=>props.Data.map((value)=>(
         <React.Fragment>
-            <SingleAddToCart Data = {value}/>
+            <SingleAddToCart Data = {value} handleDelete={()=>props.handleDelete(value._id)} />
         </React.Fragment>
         ))
 
@@ -59,7 +57,6 @@ function AddToCart(props) {
                     {renderCheckboxlist()}
                     <h5>Total Price:{Amount}</h5>
                    <StripeCheckout className="btn-block" stripeKey="pk_test_wVIvQLQLIXuy17qSxXrfXyhe00E4CZ7CFv" token={handleToken}></StripeCheckout>
-                    <button className="btn-block">Save</button>
 
                 </Panel>
             </Collapse>
