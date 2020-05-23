@@ -9,6 +9,7 @@ import CreateItem from "./components/AS_ProductManager/create-Item.component";
 import CreateCate from "./components/AS_ProductManager/create-cate.component";
 import LessList from "./components/AS_ProductManager/less-list.component";
 import VkViewProducts from "./components/VK_ProductView/VK_ViewProducts";
+import Wishlist from "./components/VK_ProductView/Wishlist"
 
 
 
@@ -19,6 +20,7 @@ function App() {
         <Navbar />
         <br/>
         <VkViewProducts/>
+        <Wishlist/>
         <Route path="/ee" exact component={ItemsList} />
         <Route path="/edit/:id" component={EditItem} />
           <Route path="/user" component={CreateItem} />
