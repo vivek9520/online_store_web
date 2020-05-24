@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/mern_pro_002.iml" filepath="$PROJECT_DIR$/.idea/mern_pro_002.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/AFFinal.iml" filepath="$PROJECT_DIR$/.idea/AFFinal.iml" />
     </modules>
   </component>
 </project>
