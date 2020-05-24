@@ -31,10 +31,20 @@ const itemsRouter = require('./routes/items');
 const catesRouter = require('./routes/cates');
 const wishRouter = require('./routes/wish');
 
+var Users = require('./routes/api/Users');
+var Auth = require('./routes/api/auth');
+var Stocks = require('./routes/api/stocks');
+var Authst = require('./routes/api/authst');
+
 
 app.use('/wish',wishRouter)
 app.use('/items',itemsRouter);
 app.use('/cates', catesRouter);
+
+app.use('/api/users', Users);
+app.use('/api/stocks', Stocks);
+app.use('/api/auth', Auth);
+app.use('/api/authst', Authst);
 
 
 

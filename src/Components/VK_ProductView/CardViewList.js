@@ -7,6 +7,8 @@ import AddToCard from "../VK_ProductView/Section/AddToCart"
 import './CSS/CardViewList.css'
 import axios from "axios";
 import {Link} from 'react-router-dom'
+import CardForGust from "./CardForGust";
+import ExtraBar from "../Commen/Extra_Bar";
 
 
 
@@ -82,11 +84,25 @@ function CardViewList() {
 
     }
 
+    const checkAuth=()=>{
+        const token = localStorage.getItem('token');
+
+
+        if (token===null){
+            return false
+        }
+        else {
+            return true
+        }
+    }
+
 
         return (
-
+           <> <div className="col-lg-12 nav1" > <ExtraBar/></div>
 
             <div className="row">
+
+
                 <div className="col-lg-12">
                     <AddToCard
                        Data = {Cart}
@@ -98,14 +114,21 @@ function CardViewList() {
                     <button className= {cartStatus ?"btn-block  cartFalse" :"btn-block  cartTrue" }>Number of Item  :   {Cart.length}</button>
                     <Link to="/wish"> <button className="btn-block" >Show Wish List</button></Link>
                 </div>
-
-                {Products.map((Product) =>(
+                {checkAuth() ? <>
+                    {Products.map((Product) =>(
+                        <div className="col-lg-3">
+                            <ProductCardView productData = {Product} addcart ={AddToCartAdd} key={Product._id} addtoWish ={addtoWish}></ProductCardView>
+                        </div>
+                    ))}
+                </>:<>{Products.map((Product) =>(
                     <div className="col-lg-3">
-                        <ProductCardView productData = {Product} addcart ={AddToCartAdd} key={Product._id} addtoWish ={addtoWish}></ProductCardView>
+                        <CardForGust productData = {Product} ></CardForGust>
                     </div>
-                ))}
+                ))}</>}
+
 
             </div>
+               </>
         );
 
 }
