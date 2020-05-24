@@ -102,7 +102,7 @@ export default class EditStaff extends Component {
 
 
         // console.log(Stock);
-        window.location = '/';
+        window.location = '/nav';
 
         axios.post('http://localhost:5000/api/stocks/update/' +this.props.match.params.id, Stock)
             .then(res => console.log(res.data));

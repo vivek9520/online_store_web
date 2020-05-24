@@ -87,7 +87,7 @@ export default class CreateStaff extends Component {
         axios.post('http://localhost:5000/api/stocks', Stock)
             .then(res => console.log(res.data));
 
-        window.location = "/";
+        window.location = "/nav";
 
         // const formData = new FormData();
         // formData.append("file", this.state.file);

@@ -36,6 +36,9 @@ var Auth = require('./routes/api/auth');
 var Stocks = require('./routes/api/stocks');
 var Authst = require('./routes/api/authst');
 
+var Authad = require('./routes/api/authad');
+var Admins = require('./routes/api/admins');
+
 
 app.use('/wish',wishRouter)
 app.use('/items',itemsRouter);
@@ -46,6 +49,8 @@ app.use('/api/stocks', Stocks);
 app.use('/api/auth', Auth);
 app.use('/api/authst', Authst);
 
+app.use('/api/authad', Authad);
+app.use('/api/admins', Admins);
 
 
 

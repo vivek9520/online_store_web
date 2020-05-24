@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 import axios from 'axios';
+import pic from './pic.jpeg'
 
 
 export default class CreateItem extends Component {
@@ -137,7 +138,7 @@ export default class CreateItem extends Component {
         axios.post('http://localhost:5000/items/add', item)
             .then(res => console.log(res.data));
 
-        window.location = "/";
+        window.location = "/loginManager1";
 
         const formData = new FormData();
         formData.append("file", this.state.file);
@@ -166,58 +167,67 @@ export default class CreateItem extends Component {
 
     render() {
         return (
-            <div>
-                <h3>Create New Item </h3>
-                <form onSubmit={this.onSubmit}>
+            <body background={pic}>
+            <div className={"container"} style={{width:'40.4rem',height:'80rem'}} >
+                <br/>
+                <div className={"card"}style={{width:'50.4rem',height:'71rem',opacity:0.9}}>
 
-                    <div className="form-group">
-                        <label>Categories: </label>
-                        <select
+                    <b>  <i> <h3 align={"center"}>Create New Item </h3></i></b>
 
-                                required
-                                className="form-control"
-                                value={this.state.cateName}
-                                onChange={this.onChangeCateName}>
-                            {
-                                this.state.cates.map(function(cate) {
-                                    return <option
-                                        key={cate}
-                                        value={cate}>{cate}
-                                    </option>;
-                                })
-                            }
-                        </select>
-                    </div>
-                    <div className="form-group">
-                        <label>Product Name: </label>
-                        <input  type="text"
-                                required
-                                className="form-control"
-                                value={this.state.productName}
-                                onChange={this.onChangeProductName}
-                        />
-                    </div>
-                    <div className="form-group">
-                        <label>Color: </label>
-                        <input  type="text"
-                                required
-                                className="form-control"
-                                value={this.state.color}
-                                onChange={this.onChangeColor}
-                        />
-                    </div>
-                    <div className="form-group">
-                        <label>Size: </label>
-                        <input  type="text"
-                                required
-                                className="form-control"
-                                value={this.state.size}
-                                onChange={this.onChangeSize}
-                        />
-                    </div>
-                    <div className="form-group">
-                        <label>Description: </label>
-                        <div className="form-group">
+                    <form onSubmit={this.onSubmit}>
+                        <div className="container">
+
+                            <div className="form-group">
+                                <label>Categories: </label>
+                                <select
+
+                                    required
+                                    className="form-control"
+                                    value={this.state.cateName}
+                                    onChange={this.onChangeCateName}>
+                                    {
+                                        this.state.cates.map(function(cate) {
+                                            return <option
+                                                key={cate}
+                                                value={cate}>{cate}
+                                            </option>;
+                                        })
+                                    }
+                                </select>
+                            </div>
+                            <div className="form-group">
+                                <label>Product Name: </label>
+                                <input  type="text"
+                                        required
+                                        placeholder={"Product Name"}
+                                        className="form-control"
+                                        value={this.state.productName}
+                                        onChange={this.onChangeProductName}
+                                />
+                            </div>
+                            <div className="form-group">
+                                <label>Color: </label>
+                                <input  type="text"
+                                        required
+                                        placeholder={"Color"}
+                                        className="form-control"
+                                        value={this.state.color}
+                                        onChange={this.onChangeColor}
+                                />
+                            </div>
+                            <div className="form-group">
+                                <label>Size: </label>
+                                <input  type="text"
+                                        required
+                                        placeholder={"Size"}
+                                        className="form-control"
+                                        value={this.state.size}
+                                        onChange={this.onChangeSize}
+                                />
+                            </div>
+                            <div className="form-group">
+                                <label>Description: </label>
+                                <div className="form-group">
                 <textarea
                     className="form-control"
                     rows="8"
@@ -225,62 +235,68 @@ export default class CreateItem extends Component {
                     value={this.state.description}
                     onChange={this.onChangeDescription}
                 ></textarea>
-                        </div>
-                    </div>
-                    <div className="form-group">
-                        <label>Quantity: </label>
-                        <input
-                            type="text"
-                            className="form-control"
-                            value={this.state.proCount}
-                            onChange={this.onChangeProCount}
-                        />
-                    </div>
-                    <div className="form-group">
-                        <label>Price: </label>
-                        <input
-                            type="text"
-                            className="form-control"
-                            value={this.state.price}
-                            onChange={this.onChangePrice}
-                        />
-                    </div>
-                    <div className="form-group">
-                        <label>Discount: </label>
-                        <input
-                            type="text"
-                            className="form-control"
-                            value={this.state.discount}
-                            onChange={this.onChangeDiscount}
-                        />
-                    </div>
-                    <div className="form-group">
-                        <label>Distributed Date: </label>
-                        <div>
-                            <DatePicker
-                                selected={this.state.date}
-                                onChange={this.onChangeDate}
-                            />
-                        </div>
-                    </div>
-                    <div className="custom-file mb-4">
-                        <label>add image: </label>
-                        <input
-                            type="file"
-                            className="custom-file-input"
-                            id="customFile"
-                            onChange={this.onChange}
-                        />
-                        <label className="customer-file-label" htmlFor="customFile">
-                            {this.state.filename}
-                        </label>
-                    </div>
+                                </div>
+                            </div>
+                            <div className="form-group">
+                                <label>Quantity: </label>
+                                <input
+                                    required
+                                    type="number"
+                                    className="form-control"
+                                    value={this.state.proCount}
+                                    onChange={this.onChangeProCount}
+                                />
+                            </div>
+                            <div className="form-group">
+                                <label>Price: </label>
+                                <input
+                                    required
+                                    type="number"
+                                    className="form-control"
+                                    value={this.state.price}
+                                    onChange={this.onChangePrice}
+                                />
+                            </div>
+                            <div className="form-group">
+                                <label>Discount: </label>
+                                <input
+                                    type="number"
+                                    className="form-control"
+                                    value={this.state.discount}
+                                    onChange={this.onChangeDiscount}
+                                />
+                            </div>
+                            <div className="form-group">
+                                <label>Distributed Date: </label>
+                                <div>
+                                    <DatePicker
+                                        selected={this.state.date}
+                                        onChange={this.onChangeDate}
+                                    />
+                                </div>
+                            </div>
+                            <div className="custom-file mb-4">
+                                <label>add image: </label>
+                                <input
+                                    required
+                                    type="file"
+                                    className="custom-file-input"
+                                    id="customFile"
+                                    onChange={this.onChange}
+                                />
+                                <label className="customer-file-label" htmlFor="customFile">
+                                    {this.state.filename}
+                                </label>
+                            </div>
 
-                    <div className="form-group">
-                        <input type="submit" value="Create Item Log" className="btn btn-primary" />
-                    </div>
-                </form>
+                            <div className="form-group">
+                                <input type="submit" value="Create Item Log" className="btn btn-primary" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
+            </body>
         )
     }
 }

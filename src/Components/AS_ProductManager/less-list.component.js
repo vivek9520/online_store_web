@@ -22,9 +22,9 @@ const Item = props => (
         </td>
 
 
-        <td>
-            <a href="#" onClick={() => { props.emailItem(props.item._id) } }>send</a>
-        </td>
+        {/*<td>*/}
+        {/*    <a href="#" onClick={() => { props.emailItem(props.item._id) } }>send</a>*/}
+        {/*</td>*/}
 
 
 
@@ -81,7 +81,7 @@ export default class ItemsList extends Component {
                         <th>Discount</th>
                         <th>Distributed Date</th>
                         <th>Image</th>
-                        <th>Send Email</th>
+                        {/*<th>Send Email</th>*/}
 
                     </tr>
                     </thead>

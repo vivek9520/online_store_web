@@ -43,6 +43,14 @@ export default class ItemsList extends Component {
             })
     }
 
+    dologout(){
+        localStorage.clear()
+
+        window.location='/'
+
+
+    }
+
     deleteItem(id) {
         axios.delete('http://localhost:5000/items/'+id)
             .then(res => console.log(res.data));
@@ -60,6 +68,9 @@ export default class ItemsList extends Component {
     render() {
         return (
             <div>
+                <div>
+                    <a  className="d-inline p-2 text-dark" onClick={this.dologout}>LOGOUT</a>
+                </div>
                 <h3>List Items</h3>
                 <table className="table">
                     <thead className="thead-light">

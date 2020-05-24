@@ -19,9 +19,7 @@ export default class Navbar extends Component {
                         <li className="navbar-item">
                             <Link to="/less" className="nav-link">Less Quantity Items</Link>
                         </li>
-                        <li className="navbar-item">
-                            <Link to="/Wishlist" className="nav-link">Wish List</Link>
-                        </li>
+
 
 
                     </ul>

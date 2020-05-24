@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import pic from './pic.jpeg'
+
 
 export default class CreateCate extends Component {
 
@@ -34,23 +36,33 @@ export default class CreateCate extends Component {
 
     render() {
         return (
-            <div>
-                <h3>Create New Categories</h3>
-                <form onSubmit={this.onSubmit}>
-                    <div className="form-group">
-                        <label>Categories: </label>
-                        <input  type="text"
-                                required
-                                className="form-control"
-                                value={this.state.cateName}
-                                onChange={this.onChangeCateName}
-                        />
-                    </div>
-                    <div className="form-group">
-                        <input type="submit" value="Create Categories" className="btn btn-primary" />
-                    </div>
-                </form>
+            <body background={pic}>
+            <div className={"container"} style={{width:'40.4rem',height:'50rem'}} >
+                <br/>
+                <div className={"card"}style={{width:'50.4rem',height:'15rem',opacity:0.9}}>
+
+
+                    <b><i><h3 align={"center"}>Create New Categories</h3></i></b>
+                    <form onSubmit={this.onSubmit}>
+                        <div className="container">
+                            <div className="form-group">
+                                <label>Categories: </label>
+                                <input  type="text"
+                                        placeholder={"Categories"}
+                                        required
+                                        className="form-control"
+                                        value={this.state.cateName}
+                                        onChange={this.onChangeCateName}
+                                />
+                            </div>
+                            <div className="form-group">
+                                <input type="submit" value="Create Categories" className="btn btn-primary" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
+            </body>
         )
     }
 }

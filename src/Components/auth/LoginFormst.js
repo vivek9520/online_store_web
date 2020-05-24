@@ -5,6 +5,7 @@ import { CardBody } from 'reactstrap';
 import pic from './sss.png';
 import admin from "./AdminPage"
 import {doLogin} from './LoginNewst'
+import {Link} from 'react-router-dom'
 
 
 
@@ -38,10 +39,12 @@ class LoginFormst extends Component{
 
     doLogin(props) {
         this.doLogin(this.state.login, this.state.pass)
+        window.location ="/loginManager"
 
     }
     doLogin(props) {
         doLogin(this.state.login, this.state.pass)
+        window.location ="/loginManager"
 
     }
 
@@ -93,7 +96,9 @@ class LoginFormst extends Component{
                                             <br/>
 
                                             <div className="csignup">
+
                                                 <button className={"btn btn-lg btn-primary btn-block"} color="primary" align="center" style={{opacity:1}} type="button"  onClick={this.doLogin.bind(this)}>SIGN IN</button>
+
                                             </div><br/>
                                             <a href="/Registerst">I'm new here as a Staff!</a> <br/> <br/>
                                             <a href="/Register">I'm new here as a User!</a> <br/> <br/>

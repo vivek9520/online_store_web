@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import Navb from './../Navbar'
 
 const Stock = props => (
     <tr>
@@ -16,7 +17,7 @@ const Stock = props => (
         {/*    />*/}
         {/*</td>*/}
         <td>
-            <Link to={"/edit/"+props.stock._id}>edit</Link> | <a href="#" onClick={() => { props.deleteStaff(props.stock._id) }}>delete</a>
+            <Link to={"/edit1/"+props.stock._id}>edit</Link> | <a href="#" onClick={() => { props.deleteStaff(props.stock._id) }}>delete</a>
         </td>
     </tr>
 )
@@ -52,9 +53,21 @@ export default class StaffList extends Component {
         })
     }
 
+    dologout(){
+        localStorage.clear()
+
+        window.location='/'
+
+
+    }
+
     render() {
         return (
             <div>
+                <Navb/>
+                <div>
+                    <a  className="d-inline p-2 text-dark" onClick={this.dologout}>LOGOUT</a>
+                </div>
                 <h3>Staff List</h3>
                 <table className="table">
                     <thead className="thead-light">
