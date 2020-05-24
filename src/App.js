@@ -10,22 +10,22 @@ import CreateCate from "./components/AS_ProductManager/create-cate.component";
 import LessList from "./components/AS_ProductManager/less-list.component";
 import VkViewProducts from "./components/VK_ProductView/VK_ViewProducts";
 import Wishlist from "./components/VK_ProductView/Wishlist"
+import Header from "./components/Commen/Header";
+import ExtraBar from "./components/Commen/Extra_Bar";
 
 
 
 function App() {
   return (
       <Router>
-
-        <Navbar />
-        <br/>
-        <VkViewProducts/>
-        <Wishlist/>
-        <Route path="/ee" exact component={ItemsList} />
+          <Header/>
+          <ExtraBar/>
+        <Route path="/wish" exact component={Wishlist} />
         <Route path="/edit/:id" component={EditItem} />
-          <Route path="/user" component={CreateItem} />
-              <Route path="/create" component={CreateCate} />
-              <Route path="/less" component={LessList} />
+        <Route path="/user" component={CreateItem} />
+        <Route path="/create" component={CreateCate} />
+        <Route path="/less" component={LessList} />
+          <Route path="/viewProduct" component={VkViewProducts} />
 
 
 

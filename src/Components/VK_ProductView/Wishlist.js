@@ -1,5 +1,7 @@
 import React, {Component,useEffect,useState} from 'react';
 import Axios from "axios";
+import Header from "../Commen/Header";
+import ExtraBar from "../Commen/Extra_Bar";
 
 import WishCard from "./WishCard"
 
@@ -52,10 +54,13 @@ function Wishlist() {
 
     return (
 
+<div>
 
+    <h1 className="jumbotron"><b>Wish List</b></h1>
         <div className="row">
+
             <div>
-                <h1>Wish List</h1>
+
             </div>
             <div className="col-lg-12">
 
@@ -69,6 +74,7 @@ function Wishlist() {
             ))}
 
         </div>
+</div>
     );
 
 }

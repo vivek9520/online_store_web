@@ -6,6 +6,7 @@ import ProductCardView from "./ProductCardView";
 import AddToCard from "../VK_ProductView/Section/AddToCart"
 import './CSS/CardViewList.css'
 import axios from "axios";
+import {Link} from 'react-router-dom'
 
 
 
@@ -80,6 +81,8 @@ function CardViewList() {
         alert("Added to Cart");
 
     }
+
+
         return (
 
 
@@ -93,6 +96,7 @@ function CardViewList() {
                 </div>
                 <div className="col-lg-12">
                     <button className= {cartStatus ?"btn-block  cartFalse" :"btn-block  cartTrue" }>Number of Item  :   {Cart.length}</button>
+                    <Link to="/wish"> <button className="btn-block" >Show Wish List</button></Link>
                 </div>
 
                 {Products.map((Product) =>(
