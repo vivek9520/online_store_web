@@ -14,8 +14,6 @@ function VkViewProducts(){
 
         return (
             <div>
-                <Header/>
-                <ExtraBar/>
                 <div className="container">
                     <br/>
 
